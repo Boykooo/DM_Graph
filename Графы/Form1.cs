@@ -63,7 +63,7 @@ namespace Графы
                 }
                 else if (Kruskal.Checked)
                 {
-                    act.Breadth();
+                    act.Kruskal();
                 }
             }
             catch { Status.Text = "Конец"; }

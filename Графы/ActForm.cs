@@ -14,6 +14,7 @@ namespace Графы
         private Paint draw;
         private Point? tempOne, tempTwo;
         private List<Edge> primEdges;
+        private List<Edge> KruskalEdges;
         private Stack<Node> stack;
         private Queue<Node> queue;
         private Node lastNode;
@@ -221,8 +222,13 @@ namespace Графы
             {
                 KruskalGraph = new MyGraph();
                 KruskalGraph.InitNodes(graph.Nodes);
-                KruskalGraph.Nodes[0].Color = Color.Red;
-                KruskalGraph.Nodes[0].Visit = true;
+                ClearDrawEdges(KruskalGraph.Nodes);
+                KruskalEdges = new List<Edge>();
+                InitKruskalEdges(KruskalGraph.Nodes);
+                KruskalEdges[0].Draw = true;
+                KruskalEdges[0].Start.Color = Color.Red;
+                KruskalEdges[0].End.Color = Color.Red;
+                KruskalEdges.RemoveAll(x => ((x.Start == KruskalEdges[0].Start && x.End == KruskalEdges[0].End) || (x.Start == KruskalEdges[0].End && x.End == KruskalEdges[0].Start)));
             }
             else
             {
@@ -230,8 +236,31 @@ namespace Графы
             }
             form.ReDraw(draw.DrawGraph(KruskalGraph.Nodes));
         }
+        private void InitKruskalEdges(List<Node> nodes)
+        {
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                for (int j = 0; j < nodes[i].edges.Count; j++)
+                {
+                    KruskalEdges.Add(nodes[i].edges[j]);
+                }
+            }
+            KruskalEdges.Sort(delegate(Edge x, Edge y) { return x.Weight.CompareTo(y.Weight); });
+
+            //for (int i = 0; i < KruskalEdges.Count; i++)
+            //{
+            //    for (int j = 0; j < KruskalEdges.Count; j++)
+            //    {
+            //        if (KruskalEdges[i].Weight == )
+            //    }
+            //}
+        }
         private void KruskalStep()
         {
+            if (KruskalEdges.Count != 0)
+            {
+
+            }
         }
     }
 }

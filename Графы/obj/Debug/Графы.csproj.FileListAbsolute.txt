@@ -1,0 +1,9 @@
+c:\users\андрей\documents\visual studio 2013\Projects\Графы\Графы\bin\Debug\Графы.exe.config
+c:\users\андрей\documents\visual studio 2013\Projects\Графы\Графы\bin\Debug\Графы.exe
+c:\users\андрей\documents\visual studio 2013\Projects\Графы\Графы\bin\Debug\Графы.pdb
+c:\users\андрей\documents\visual studio 2013\Projects\Графы\Графы\obj\Debug\Графы.csprojResolveAssemblyReference.cache
+c:\users\андрей\documents\visual studio 2013\Projects\Графы\Графы\obj\Debug\Графы.Form1.resources
+c:\users\андрей\documents\visual studio 2013\Projects\Графы\Графы\obj\Debug\Графы.Properties.Resources.resources
+c:\users\андрей\documents\visual studio 2013\Projects\Графы\Графы\obj\Debug\Графы.csproj.GenerateResource.Cache
+c:\users\андрей\documents\visual studio 2013\Projects\Графы\Графы\obj\Debug\Графы.exe
+c:\users\андрей\documents\visual studio 2013\Projects\Графы\Графы\obj\Debug\Графы.pdb

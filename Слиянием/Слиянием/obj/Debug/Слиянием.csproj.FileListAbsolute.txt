@@ -1,0 +1,6 @@
+c:\users\андрей\documents\visual studio 2013\Projects\Слиянием\Слиянием\bin\Debug\Слиянием.exe.config
+c:\users\андрей\documents\visual studio 2013\Projects\Слиянием\Слиянием\bin\Debug\Слиянием.exe
+c:\users\андрей\documents\visual studio 2013\Projects\Слиянием\Слиянием\bin\Debug\Слиянием.pdb
+c:\users\андрей\documents\visual studio 2013\Projects\Слиянием\Слиянием\obj\Debug\Слиянием.csprojResolveAssemblyReference.cache
+c:\users\андрей\documents\visual studio 2013\Projects\Слиянием\Слиянием\obj\Debug\Слиянием.exe
+c:\users\андрей\documents\visual studio 2013\Projects\Слиянием\Слиянием\obj\Debug\Слиянием.pdb

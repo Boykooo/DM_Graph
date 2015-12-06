@@ -66,12 +66,14 @@ namespace Графы
         public Node Start { get; set; }
         public int Weight { get; set; }
         public Color Color { get; set; }
+        public bool Draw { get; set; }
         public Edge(Node end, Node start, int weight)
         {
             End = end;
             Start = start;
             Weight = weight;
             Color = System.Drawing.Color.Black;
+            Draw = true;
         }
     }
 }

@@ -7,3 +7,12 @@ c:\users\андрей\documents\visual studio 2013\Projects\Графы\Граф�
 c:\users\андрей\documents\visual studio 2013\Projects\Графы\Графы\obj\Debug\Графы.csproj.GenerateResource.Cache
 c:\users\андрей\documents\visual studio 2013\Projects\Графы\Графы\obj\Debug\Графы.exe
 c:\users\андрей\documents\visual studio 2013\Projects\Графы\Графы\obj\Debug\Графы.pdb
+C:\Users\Андрей\Desktop\Графы\Графы\bin\Debug\Графы.exe.config
+C:\Users\Андрей\Desktop\Графы\Графы\obj\Debug\Графы.exe
+C:\Users\Андрей\Desktop\Графы\Графы\obj\Debug\Графы.pdb
+C:\Users\Андрей\Desktop\Графы\Графы\bin\Debug\Графы.exe
+C:\Users\Андрей\Desktop\Графы\Графы\bin\Debug\Графы.pdb
+C:\Users\Андрей\Desktop\Графы\Графы\obj\Debug\Графы.csprojResolveAssemblyReference.cache
+C:\Users\Андрей\Desktop\Графы\Графы\obj\Debug\Графы.Form1.resources
+C:\Users\Андрей\Desktop\Графы\Графы\obj\Debug\Графы.Properties.Resources.resources
+C:\Users\Андрей\Desktop\Графы\Графы\obj\Debug\Графы.csproj.GenerateResource.Cache

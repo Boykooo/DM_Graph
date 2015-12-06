@@ -166,15 +166,26 @@ namespace Графы
                 primEdges = new List<Edge>();
                 PrimGraph = new MyGraph();
                 PrimGraph.InitNodes(graph.Nodes);
+                ClearDrawEdges(PrimGraph.Nodes);
                 PrimGraph.Nodes[0].Color = Color.Red;
                 PrimGraph.Nodes[0].Visit = true;
                 AddRange(PrimGraph.Nodes[0]);
             }
-            else 
+            else
             {
                 PrimStep();
             }
             form.ReDraw(draw.DrawGraph(PrimGraph.Nodes));
+        }
+        private void ClearDrawEdges(List<Node> nodes)
+        {
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                for (int j = 0; j < nodes[i].edges.Count; j++)
+                {
+                    nodes[i].edges[j].Draw = false;
+                }
+            }
         }
         private void PrimStep()
         {
@@ -183,10 +194,14 @@ namespace Графы
                 int min = primEdges.Min(x => x.Weight);
                 int index = primEdges.FindIndex((x) => x.Weight == min);
                 form.StatusSearch(primEdges[index].End.Key);
-                primEdges[index].End.Visit = true;
-                primEdges[index].End.Color = Color.Red;
-                //primEdges[index].Color = Color.Red;
-                AddRange(primEdges[index].End);
+                if (primEdges[index].End.Visit == false)
+                {
+                    primEdges[index].End.Visit = true;
+                    primEdges[index].End.Color = Color.Red;
+                    primEdges[index].Draw = true;
+                    //primEdges[index].Color = Color.Red;
+                    AddRange(primEdges[index].End);
+                }
                 primEdges.RemoveAll((x) => x.End.Key == primEdges[index].End.Key);
             }
         }
@@ -199,6 +214,24 @@ namespace Графы
                     primEdges.Add(node.edges[i]);
                 }
             }
+        }
+        public void Kruskal()
+        {
+            if (KruskalGraph == null)
+            {
+                KruskalGraph = new MyGraph();
+                KruskalGraph.InitNodes(graph.Nodes);
+                KruskalGraph.Nodes[0].Color = Color.Red;
+                KruskalGraph.Nodes[0].Visit = true;
+            }
+            else
+            {
+                KruskalStep();
+            }
+            form.ReDraw(draw.DrawGraph(KruskalGraph.Nodes));
+        }
+        private void KruskalStep()
+        {
         }
     }
 }

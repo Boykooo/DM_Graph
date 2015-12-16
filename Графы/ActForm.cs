@@ -225,10 +225,6 @@ namespace Графы
                 ClearDrawEdges(KruskalGraph.Nodes);
                 KruskalEdges = new List<Edge>();
                 InitKruskalEdges(KruskalGraph.Nodes);
-                KruskalEdges[0].Draw = true;
-                KruskalEdges[0].Start.Color = Color.Red;
-                KruskalEdges[0].End.Color = Color.Red;
-                KruskalEdges.RemoveAll(x => ((x.Start == KruskalEdges[0].Start && x.End == KruskalEdges[0].End) || (x.Start == KruskalEdges[0].End && x.End == KruskalEdges[0].Start)));
             }
             else
             {
@@ -245,21 +241,72 @@ namespace Графы
                     KruskalEdges.Add(nodes[i].edges[j]);
                 }
             }
-            KruskalEdges.Sort(delegate(Edge x, Edge y) { return x.Weight.CompareTo(y.Weight); });
-
-            //for (int i = 0; i < KruskalEdges.Count; i++)
-            //{
-            //    for (int j = 0; j < KruskalEdges.Count; j++)
-            //    {
-            //        if (KruskalEdges[i].Weight == )
-            //    }
-            //}
+            KruskalEdges.Sort(delegate(Edge x, Edge y) { return x.Weight.CompareTo(y.Weight); }); // Сортируем по весу ребер
+            //Первое ребро
+            KruskalEdges[0].Start.Color = Color.Red;
+            KruskalEdges[0].End.Color = Color.Red;
+            KruskalEdges[0].End.Index = KruskalEdges[0].Start.Index;
+            KruskalEdges[0].Draw = true;
+            KruskalEdges[0].Start.Visit = true;
+            KruskalEdges[0].End.Visit = true;
+            if (KruskalEdges[1].Start == KruskalEdges[0].End && KruskalEdges[1].End == KruskalEdges[0].Start)
+            {
+                KruskalEdges[1].Draw = true;
+            }
+            KruskalEdges.RemoveAt(0);
+            KruskalEdges.RemoveAt(0);
         }
         private void KruskalStep()
         {
             if (KruskalEdges.Count != 0)
             {
-
+                if (KruskalEdges[0].Start.Index != KruskalEdges[0].End.Index) // Если разные компоненты связности
+                {
+                    if (!KruskalEdges[0].Start.Visit) // Меняем компонент связности у всех присоединенных узлов
+                    {
+                        ChangeMarked(KruskalEdges[0].Start, KruskalEdges[0].End.Index);
+                    }
+                    else
+                    {
+                        ChangeMarked(KruskalEdges[0].End, KruskalEdges[0].Start.Index);
+                    }
+                    KruskalEdges[0].Start.Color = Color.Red;
+                    KruskalEdges[0].End.Color = Color.Red;
+                    KruskalEdges[0].Draw = true;
+                    KruskalEdges[0].Start.Visit = true;
+                    KruskalEdges[0].End.Visit = true;
+                    if (KruskalEdges[1].Start == KruskalEdges[0].End && KruskalEdges[1].End == KruskalEdges[0].Start)
+                    {
+                        // т.е. неорентированный граф
+                        KruskalEdges[1].Draw = true;
+                    }
+                    //Удаление ребра из списка
+                    KruskalEdges.RemoveAt(0);
+                    KruskalEdges.RemoveAt(0);
+                }
+                else
+                {
+                    KruskalEdges.RemoveAt(0);
+                    KruskalEdges.RemoveAt(0);
+                }
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+        private void ChangeMarked(Node q, int index)
+        {
+            if (q.Index != index)
+            {
+                q.Index = index;
+                for (int i = 0; i < q.edges.Count; i++)
+                {
+                    if (q.edges[i].End.Visit && q.edges[i].Draw)
+                    {
+                        ChangeMarked(q.edges[i].End, index);
+                    }
+                }
             }
         }
     }

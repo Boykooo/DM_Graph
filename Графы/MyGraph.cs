@@ -31,7 +31,7 @@ namespace Графы
         {
             int one = Nodes.FindIndex(x => x.Location == start);
             int two = Nodes.FindIndex(x => x.Location == end);
-            int weight = r.Next(1,55);
+            int weight = r.Next(1,99);
             Nodes[one].AddEdge(new Edge(Nodes[two], Nodes[one], weight));
             Nodes[two].AddEdge(new Edge(Nodes[one], Nodes[two], weight));
         }
@@ -47,6 +47,7 @@ namespace Графы
         public int Key { get; set; }
         public bool Visit { get; set; }
         public List<Edge> edges { get; set; }
+        public int Index { get; set; }
         public Node(int key, Point location)
         {
             Color = Color.Yellow;
@@ -54,6 +55,7 @@ namespace Графы
             Key = key;
             Location = location;
             Visit = false;
+            Index = key;
         }
         public void AddEdge(Edge edge)
         {
